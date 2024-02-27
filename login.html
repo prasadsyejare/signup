@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+
+
+    <style>
+        body {
+            align-items: center;
+            text-align: center;
+            margin-top: 200px;
+            color: rgb(20, 162, 180);
+            background-color: rgb(56, 99, 201);
+        }
+        button{
+            align-items: center;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            background-color: green;
+            border-radius: 5%;
+            
+        }
+        form {
+            
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <h1>Login</h1>
+    <form id="loginForm">
+        <input type="text" name="loginUsername" id="loginUsername" required placeholder="Enter your username">
+        <input type="password" name="loginPassword" id="loginPassword" required placeholder="Enter your password">
+        <button>Login</button>
+    </form>
+    
+    
+</body>
+<script>
+let form = document.getElementById('loginForm')
+    form.addEventListener('submit',(e) => {
+        e.preventDefault();
+            let enteredUsername = document.getElementById('loginUsername').value;
+            let enteredPassword = document.getElementById('loginPassword').value;
+
+            // Get the stored sign-up information from local storage
+            let storedUsername = localStorage.getItem('username');
+            let storedPassword = localStorage.getItem('password');
+
+            // Check if the entered login information matches the stored sign-up information
+            if (enteredUsername === storedUsername && enteredPassword === storedPassword) {
+                window.location.href = 'home.html';
+                alert("Login successful!");
+                window.location.href = 'home.html';
+            } else {
+                alert("Incorrect username or password. Please try again.");
+            }
+        });  
+
+</script>
+</html>
